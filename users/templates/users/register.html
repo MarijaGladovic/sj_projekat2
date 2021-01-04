@@ -1,0 +1,37 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+   
+		
+
+		<div class=' column main'>
+			<div class='sort'><a href="#"><small>Already have an account?</small></a></div>
+			
+			<form method="post" novalidate >
+  			{% csrf_token %}
+  			<!--neka django procedura.bez ovoga nijedna forma nece da radi-->
+
+			{% for hidden_field in form.hidden_fields %}
+    		{{ hidden_field }}
+  			{% endfor %}
+
+  			{% for field in form.visible_fields %}
+    		<div class="form-group">
+
+      			<div class='label'>{{ field.label_tag }}</div>
+      			<div class='field'>{{ field }}</div>
+				<small style="color: red">{{ field.errors }}</small>
+
+				<div class='help'>
+      			{% if field.help_text %}
+        			<small class="smalltext">{{ field.help_text }}</small>
+      			{% endif %}
+      			</div>
+
+    		</div>
+  			{% endfor %}
+			<div><input type="submit" name="aricle_b" value="Sign up" style="margin-bottom: 100px;"></div>
+			</form>	
+		</div>	
+	
+	
+{% endblock content %}
