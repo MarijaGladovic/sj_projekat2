@@ -1,4 +1,35 @@
 {% extends 'blog/base.html' %}
-{% block content %}	
-<h1>qwerty</h1>
+{% block content %}
+
+<div class='column main'>
+
+	{% for post in posts %}
+	<div class='content' id='{{post.id}}'>
+		<div class='post_header'>
+			<div class='post_cover' id='cover_{{ forloop.counter }}'>
+				
+			</div>
+			<div class='post_base'>
+				<div class='post_abstract' id='post_abstract_{{ forloop.counter }}'>
+					<div class='post_left'><p>#{{ post.id }}</p><p style="font-style: italic;">{{ post.title }}</p></div>
+					<div class='post_right'><p>{{ post.date_posted|date:'F d, Y' }}</p><p><small>written by</small> {{ post.author }}</p></div>
+					<br>
+					<br>
+					
+						<article style="padding: 10px" id='article_{{ forloop.counter }}' >{{ post.content }}</article>
+					
+					
+				</div>
+				
+				
+		
+		    </div>
+		</div>
+	</div>	
+	{% endfor %}
+</div>	
+
+
+			
+		
 {% endblock content %}

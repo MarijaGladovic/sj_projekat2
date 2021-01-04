@@ -4,7 +4,7 @@
 		
 
 		<div class=' column main'>
-			<div class='sort'><a href="#"><small>Already have an account?</small></a></div>
+			<div class='sort'><a href="{% url 'login' %}"><small>Already have an account?</small></a></div>
 			
 			<form method="post" novalidate >
   			{% csrf_token %}
