@@ -3,17 +3,16 @@
 
    
 		
-
 		<div class=' column main'>
-			
-			<form method="post" novalidate>
+			<div><b>Profile update</b></div>
+				<form method="post" novalidate enctype="multipart/form-data">
   			{% csrf_token %}
 
-			{% for hidden_field in form.hidden_fields %}
+			{% for hidden_field in u_form.hidden_fields %}
     		{{ hidden_field }}
   			{% endfor %}
 
-  			{% for field in form.visible_fields %}
+  			{% for field in u_form.visible_fields %}
     		<div class="form-group">
       			<div class='label'>{{ field.label_tag }}</div>
       			<div class='field'>{{ field }}</div>
@@ -27,9 +26,13 @@
 
     		</div>
   			{% endfor %}
-			<div><input type="submit" name="aricle_b" value="Sign in"></div>
-			</form>	
-			
+
+			<br><br>
+
+  		
+			<div><input type="submit" name="aricle_b" value="Update"></div>	
 		</div>	
+	</form>
 	
 {% endblock content %}
+

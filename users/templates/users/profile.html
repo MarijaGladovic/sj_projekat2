@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+
+		<div class=' column main'>
+			
+			<div class='sort'><a style='color:#9cc0c9;' href="{% url 'update' %}"><small>Update profile</small></a></div>
+			
+				<div class='post_left' id='post_left'>
+					<h2>{{ user.username }}</h2>
+					<h3>{{ user.email }}</h3><br><br>
+					<h1 class='read' ><a href="#">Create article</a></h1>
+				</div>
+			
+		</div>	
+	
+{% endblock content %}
