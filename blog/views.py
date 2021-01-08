@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Post
+from django.contrib import messages
 from django.views.generic import (
     
     DetailView,
@@ -52,8 +53,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView,):
 		post=self.get_object()
 		if self.request.user==post.author:
 			return True
-			messages.success(request, f'Updated successfuly.')
-		messages.error(request, f'You are not post author. Cannot update.')
+		
 		return False
 
 
@@ -64,7 +64,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 		post=self.get_object()
 		if self.request.user==post.author:
 			return True
-		messages.error(request, f'You are not post author. Cannot delete.')
+		
 
 	#post_confirm_delete.html
 		return False

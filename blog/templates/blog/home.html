@@ -12,7 +12,7 @@
 			<div class='post_base'>
 				<div class='post_abstract' id='post_abstract_{{ forloop.counter }}'>
 					<div class='post_left'><p>#{{ post.id }}</p><p style="font-style: italic;"><a style='color:#333333; text-decoration: none'
-						href="{% url 'post-detail' post.id %}}">{{ post.title }}</a></p></div>
+						href="{% url 'post-detail' post.id %}">{{ post.title }}</a></p></div>
 					<div class='post_right'><p>{{ post.date_posted|date:'F d, Y' }}</p><p><small>written by</small> {{ post.author }}</p>{% if post.author == user %}
 					<p ><small><a style='color:#5996a6; text-decoration: none' href="{% url 'post-update' post.id %}">Update</a> | <a style='color:#5996a6; text-decoration: none' href="{% url 'post-delete' post.id %}">Delete</a> </small></p>
 					
